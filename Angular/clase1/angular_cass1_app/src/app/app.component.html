@@ -1,3 +1,38 @@
+<button (click)="setVisible()">
+  {{ visible? 'Ocultar' : 'Visualizar' }}
+</button>
+
+<!-- CLASE 2 METODO Angular 17 -->
+ @if(visible){
+  @if(users.length > 0){
+    <h2> {{title}} </h2>
+    <table>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Name</td>
+        </tr>
+      </thead>
+      <tbody>
+        @for (user of users; track $index) {
+          <tr>
+            <td> {{$index}} </td>
+            <td> {{user}} </td>
+          </tr>
+        }
+
+      </tbody>
+    </table>
+  }@else {
+    <p>No hay registros en el sistema</p>
+  }
+   
+
+ }@else{
+    <div>No posible Visualizar!</div>
+ }
+<!-- CLASE 1 METODO ngFor ngIf component:CommonModule -->
+<!-- 
 <div *ngIf="visible; else notExist" >
 
   <h2> {{title}} </h2>
@@ -28,8 +63,7 @@
 <ng-template #notExist>
   No posible Visualizar!
   
-</ng-template>
+</ng-template> -->
 
-<button (click)="setVisible()">
-  {{ visible? 'Ocultar' : 'Visualizar' }}
-</button>
+
+
