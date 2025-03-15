@@ -1,11 +1,12 @@
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { CounterComponent } from './counter/counter.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, CounterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
