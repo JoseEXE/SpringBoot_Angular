@@ -2,6 +2,9 @@
   {{ visible? 'Ocultar' : 'Visualizar' }}
 </button>
 
+<div>
+  {{contador}}
+</div>
 <!-- CLASE 2 METODO Angular 17 -->
  @if(visible){
   @if(users.length > 0){
@@ -31,8 +34,10 @@
  }@else{
     <div>No posible Visualizar!</div>
  }
+<!-- [title] es la forma de enviar el valor del padre al hijo -->
+ <app-counter [title]="subTitle" (counterEmit)="setCounterX($event)"></app-counter>
 
- <app-counter></app-counter>
+
 <!-- CLASE 1 METODO ngFor ngIf component:CommonModule -->
 <!-- 
 <div *ngIf="visible; else notExist" >
