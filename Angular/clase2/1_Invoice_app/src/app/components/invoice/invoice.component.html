@@ -20,8 +20,9 @@
 
             </div>
             <div>
-            <app-list-items [items]="invoice.items"></app-list-items>
+            <app-list-items [items]="invoice.items" (removeEventEmitter)="onRemove($event)"></app-list-items>
             </div>
+            <app-total-view [total]="invoice.total"></app-total-view>
         </div>
     </div>
 </div>
