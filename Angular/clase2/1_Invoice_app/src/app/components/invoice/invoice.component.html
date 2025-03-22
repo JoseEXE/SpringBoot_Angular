@@ -23,6 +23,9 @@
             <app-list-items [items]="invoice.items" (removeEventEmitter)="onRemove($event)"></app-list-items>
             </div>
             <app-total-view [total]="invoice.total"></app-total-view>
+            <div>
+                <app-form-item (addItemEventEmitter)="addItem($event)"></app-form-item>
+            </div>
         </div>
     </div>
 </div>
