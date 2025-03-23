@@ -1,14 +1,7 @@
-<h2>Carro de compras!</h2>
-<div class="container">
-
-    @for (product of products; track $index) {
-        <div> {{product.name}} </div>
-        <div> {{product.description}} </div>
-        <div> {{product.price}} </div>
-        <button class="btn btn-primary btn-sm">
-            <i class="bi bi-cart-plus"></i>
-            Agregar
-        </button>
-    }
-
-</div>
+<h2>Catalogo de productos App!</h2>
+<app-catalog [products]="products" (productEventEmitter)="onAddCart($event)"></app-catalog>
+@if (items.length > 0) {
+    <app-cart [items]="items"></app-cart>
+}@else{
+    <div class="alert alert-warning">No hay elementos en el carrito!</div>
+}
