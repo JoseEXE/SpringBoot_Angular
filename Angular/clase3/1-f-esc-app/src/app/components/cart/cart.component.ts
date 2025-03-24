@@ -11,7 +11,8 @@ import { Product } from '../../models/product';
 })
 export class CartComponent {
   @Input() items: CartItem[] = [];
-
+  @Input() total: number = 0;
+  
   @Output() idProductEventEmitter = new EventEmitter();
 
   onDeleteCart(id: number){
