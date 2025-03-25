@@ -1,9 +1,23 @@
 <h2>Catalogo de productos App!</h2>
-<app-catalog [products]="products" (productEventEmitter)="onAddCart($event)"></app-catalog>
-@if (items.length > 0) {
-    <app-cart [items]="items" 
-    [total]="total"
-    (idProductEventEmitter)="onDeleteCart($event)"></app-cart>
-}@else{
-    <div class="alert alert-warning">No hay elementos en el carrito!</div>
-}
+<button class="btn btn-info btn-sm" (click)="openCart()">
+    <i class="bi bi-cart4">({{items.length}})</i>
+</button>
+<div class="row">
+    <div [className]="showCart? 'col-9' : 'col'">
+        <app-catalog [products]="products" (productEventEmitter)="onAddCart($event)"></app-catalog>
+    </div>
+    @if(showCart){
+        <div class="col-3">
+            @if (items.length > 0) {
+                <app-cart [items]="items" 
+                [total]="total"
+                (idProductEventEmitter)="onDeleteCart($event)"></app-cart>
+            }@else{
+                <div class="alert alert-warning">No hay elementos en el carrito!</div>
+            }
+            <button class="btn btn-light btn-sm float-end" (click)="openCart()">
+                <i class="bi bi-x-circle"></i>
+            </button>
+        </div>
+    }
+</div>
