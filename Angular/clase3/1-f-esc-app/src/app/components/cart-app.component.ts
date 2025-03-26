@@ -6,11 +6,12 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItem } from '../models/cartItem';
 import { PoductCardComponent } from './poduct-card/poduct-card.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-cart-app',
   standalone: true,
-  imports: [CatalogComponent, CartComponent],
+  imports: [CatalogComponent, CartComponent, NavbarComponent],
   templateUrl: './cart-app.component.html',
   //styleUrl: './cart-app.component.css'
 })
@@ -29,7 +30,7 @@ export class CartAppComponent implements OnInit{
   }
   ngOnInit(): void {
   this.products = this.service.findAll();
-  this.items = JSON.parse(sessionStorage.getItem('cart')!) || [];
+  this.items = JSON.parse(sessionStorage.getItem('cart') || '[]' ) ;
   this.calculateTotal();
   }
 
