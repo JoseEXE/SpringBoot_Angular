@@ -1,5 +1,5 @@
 
-<app-navbar [items]="items" (openCartEventEmitter)="openCart()"></app-navbar> 
+<!-- <app-navbar [items]="items" (openCartEventEmitter)="openCart()"></app-navbar> 
 <div class="container my-4">
     <h2>Catalogo de productos App!</h2>
     <button class="btn btn-info btn-sm" >
@@ -24,4 +24,17 @@
             </div>
         }
     </div>
+</div> -->
+
+
+<app-navbar [items]="items" (openCartEventEmitter)="openCart()"></app-navbar> 
+<div class="container my-4">
+    <h2>Catalogo de productos App!</h2>
+    <app-catalog [products]="products" (productEventEmitter)="onAddCart($event)"></app-catalog>
+       
+
+    @if(showCart){
+       <app-cart-modal [items]="items" 
+       [total]="total" (idProductEventEmitter)="onDeleteCart($event)" (openCartEventEmitter)="openCart()"></app-cart-modal>
+    }
 </div>
